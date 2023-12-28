@@ -1,7 +1,6 @@
 # Vanilla Neural Net (multi layer perceptron) : 
 
-Learnt from this [link](https://www.3blue1brown.com/lessons/neural-networks) , this [book](http://neuralnetworksanddeeplearning.com/chap1.html)
-
+Referred from this [link](https://www.3blue1brown.com/lessons/neural-networks) , this [book](http://neuralnetworksanddeeplearning.com/chap1.html)
 
 
 
@@ -115,6 +114,50 @@ Ideally cost function should be an absolute difference between expected output a
 
 $C(P,E) = (P_{nj} - E_{nj})^2 $
 
-The slope of this vector ($C_{nj}) is called the “gradient” symbolized by $, and it tells you which direction you should step to increase the function most quickly. Taking the negative of that vector gives you the direction to step which decreases the function most quickly. The length of that gradient vector is an indication for just how steep that steepest slope is.
+
+The slope of this vector ($C_{nj}$) is called the “gradient” symbolized by ${\nabla}C$, and it tells you which direction you should step to increase the function most quickly. Taking the negative of that vector gives you the direction to step which decreases the function most quickly. The length of that gradient vector is an indication for just how steep that steepest slope is.
+
+Each step will look like $-\alpha\vec{\nabla}C$ where $\alpha\$ will look like the learning rate.  
+
+The cost function also tells us changing which of the weights causes the biggest improvemnts in the prediction and thus tells you which node is important 
 
 
+### Backpropogation : 
+
+Taking a step back from trying to differentiate the cost function :  
+Once you want to improve a prediction, there are 3 things you can do to acheive that : 
+- Increase the bias
+- Increase the weights
+- Change the activations from the previous layer
+
+The last one, changing the activations, means you need to change the corresponding activations in the previous to previous layer and hence need to recursively do  this so that the effects add up. 
+
+Imagine a 3 layer neural net containing only one node each : 
+<img width="517" alt="image" src="https://github.com/gautamrajeev/learning/assets/86904775/ca163d19-78d7-4a19-bea6-be81540a82e5">
+
+<img width="463" alt="image" src="https://github.com/gautamrajeev/learning/assets/86904775/9c95a641-2757-41c1-b2b3-27c0d30a37cb">
+
+Considering y to be the final prediction : 
+
+$$ C_0 = (a^{L} - y) ^ {2} $$
+
+Now looking at $a^{(L)}$
+
+$$ a^{(L)}=\sigma\left(w^{(L)} a^{(L-1)}+b^{(L)}\right) $$
+
+introducing $z^L$ such that 
+
+$$ z^{(L)}=w^{(L)} a^{(L-1)}+b^{(L)} $$
+
+$$ a^{(L)}=\sigma\left(z^{(L)}\right) $$
+
+Looking at the whole tree: 
+
+<img width="230" alt="image" src="https://github.com/gautamrajeev/learning/assets/86904775/31942977-4c7e-4abd-b988-0652a9537b34">
+
+the weight, the previous activation, and the bias together let us compute $z^{(L)}$  , which in turn lets us compute $a^{L}$
+ , which in turn, along with the constant y lets us compute the cost. And $a^{(L-1)}$  is influenced by its own weight and bias. 
+
+
+
+ \frac{\partial C_0}{\partial w^{(L)}}=\frac{\partial C_0}{\partial a^{(L)}} \frac{\partial a^{(L)}}{\partial z^{(L)}}  \frac{\partial z^{(L)}}{\partial w^{(L)}} 
