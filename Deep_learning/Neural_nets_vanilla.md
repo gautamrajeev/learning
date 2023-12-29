@@ -153,11 +153,28 @@ $$ a^{(L)}=\sigma\left(z^{(L)}\right) $$
 
 Looking at the whole tree: 
 
-<img width="230" alt="image" src="https://github.com/gautamrajeev/learning/assets/86904775/31942977-4c7e-4abd-b988-0652a9537b34">
+<img width="404" alt="image" src="https://github.com/gautamrajeev/learning/assets/86904775/85fb029c-607a-4834-94bf-054a35f8f59f">
+
+In the above tree; $z^{(L)}$ is whatever is formed before sigmoidification , $a^{(L)}$ is just the sigmoidification of z and C is just subtracting the y from it. We want to understand how a delta in w will affect $z^{L}$ and how that will affect $a^{L}$ and how that will finally affect Cost. 
+
+
 
 the weight, the previous activation, and the bias together let us compute $z^{(L)}$  , which in turn lets us compute $a^{L}$
  , which in turn, along with the constant y lets us compute the cost. And $a^{(L-1)}$  is influenced by its own weight and bias. 
 
 
 
- \frac{\partial C_0}{\partial w^{(L)}}=\frac{\partial C_0}{\partial a^{(L)}} \frac{\partial a^{(L)}}{\partial z^{(L)}}  \frac{\partial z^{(L)}}{\partial w^{(L)}} 
+
+ $$ \frac{\partial C_0}{\partial w^{(L)}}=\frac{\partial C_0}{\partial a^{(L)}} \frac{\partial a^{(L)}}{\partial z^{(L)}}  \frac{\partial z^{(L)}}{\partial w^{(L)}} $$
+
+$$
+\begin{aligned}
+& \frac{\partial C 0}{\partial a^{(L)}}=2\left(a^{(L)}-y\right) \\
+& \frac{\partial a^{(L)}}{\partial z^{(L)}}=\sigma^{\prime}\left(z^{(L)}\right) \\
+& \frac{\partial z^{(L)}}{\partial w^{(L)}}=a^{(L-1)}
+\end{aligned} $$
+
+ $$ \frac{\partial C_0}{\partial w^{(L)}}=  2\left(a^{(L)}-y\right) \sigma^{\prime}\left(z^{(L)}\right)  a^{(L-1)}  $$
+
+**Looking at $z^{L}$ more closely, how much of a nudge to the weight affects z depends on how strong the previous neuron is**
+
