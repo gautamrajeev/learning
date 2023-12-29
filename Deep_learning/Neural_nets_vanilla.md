@@ -176,5 +176,5 @@ $$
 
  $$ \frac{\partial C_0}{\partial w^{(L)}}=  2\left(a^{(L)}-y\right) \sigma^{\prime}\left(z^{(L)}\right)  a^{(L-1)}  $$
 
-**Looking at $z^{L}$ more closely, how much of a nudge to the weight affects z depends on how strong the previous neuron is**
+**Looking at $z^{L}$ more closely, how much of a nudge to the weight affects z depends on how strong the previous neuron is, this is the essence of neural nets**
 
