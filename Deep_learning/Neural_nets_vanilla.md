@@ -222,4 +222,22 @@ After simplifying, we find that:
 
 $$ \sigma'(z) = \sigma(z) \cdot (1 - \sigma(z)) $$
 
-This result shows that the derivative of the sigmoid function at any point \( z \) can be easily calculated if we know the value of the sigmoid function at that point. 
+This result shows that the derivative of the sigmoid function at any point \( z \) can be easily calculated if we know the value of the sigmoid function at that point.
+
+The cost function for a bias for example will be very similar except the weight will be replaced by bias
+
+ $$ \frac{\partial C_0}{\partial w^{(L)}}=\frac{\partial C_0}{\partial a^{(L)}} \frac{\partial a^{(L)}}{\partial z^{(L)}}  \frac{\partial z^{(L)}}{\partial b^{(L)}} $$
+
+
+ $$ \frac{\partial z^{(L)}}{\partial b^{(L)}}=1 $$
+
+ |||ly,  
+
+ $$ \frac{\partial C_0}{\partial a^{(L-1)}}=\frac{\partial C_0}{\partial a^{(L)}} \frac{\partial a^{(L)}}{\partial z^{(L)}}  \frac{\partial z^{(L)}}{\partial a^{(L-1)}} $$
+
+$$ \frac{\partial z^{(L)}}{\partial a^{(L-1)}}= w^{L} $$
+
+
+
+For calcualting the affect of $w^{(L-1)}$ on $C_0$  you follow the tree: change in $z^{L-1}$ due to change in $w^{L-1}$ and the resulting change in $a^{L-1}$ due to $z^{L-1}$ and so on
+$$ \frac{\partial C_0}{\partial w^{(L-1)}}=\frac{\partial z^{(L-1)}}{\partial w^{(L-1)}} \frac{\partial a^{(L-1)}}{\partial z^{(L-1)}} \frac{\partial z^{(L)}}{\partial a^{(L-1)}} \frac{\partial a^{(L)}}{\partial z^{(L)}} \frac{\partial C_0}{\partial a^{(L)}} $$
