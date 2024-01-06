@@ -178,3 +178,48 @@ $$
 
 **Looking at $z^{L}$ more closely, how much of a nudge to the weight affects z depends on how strong the previous neuron is, this is the essence of neural nets**
 
+
+
+##### Looking at the derivative of $\sigma^{\prime}\left(z^{(L)}\right)$
+
+
+
+The sigmoid function is defined as:
+
+$$  \sigma(z) = \frac{1}{1 + e^{-z}} \ $$
+
+To calculate the derivative of the sigmoid function with respect to its input  z , denoted as $\sigma'(z) $, we apply calculus principles:
+
+$$ \sigma'(z) = \frac{d}{dz}\left(\frac{1}{1 + e^{-z}}\right) \$$
+
+We follow these steps to compute the derivative:
+
+1. Recognize the sigmoid function as the inverse of $ 1 + e^{-z} $.
+2. Apply the chain rule, which in this context is $ f'(g(z)) \cdot g'(z) $, where $ f(u) = \frac{1}{u} $ and $ g(z) = 1 + e^{-z} $.
+
+The derivative of f(u)  with respect to u is:
+
+$$ f'(u) = -\frac{1}{u^2} $$
+
+And the derivative of  g(z)  with respect to z  is:
+
+$$ g'(z) = -e^{-z}$$
+
+Now, applying the chain rule gives us:
+
+$$ \sigma'(z) = -\frac{1}{(1 + e^{-z})^2} \cdot (-e^{-z}) $$
+$$ \sigma'(z) = \frac{e^{-z}}{(1 + e^{-z})^2} $$
+
+We can simplify this expression by recognizing that:
+
+$$ e^{-z} = \frac{1 - \sigma(z)}{\sigma(z)} $$
+
+Substituting \( e^{-z} \) into the derivative, we get:
+
+$$ \sigma'(z) = \frac{\frac{1 - \sigma(z)}{\sigma(z)}}{(1 + \frac{1 - \sigma(z)}{\sigma(z)})^2} $$
+
+After simplifying, we find that:
+
+$$ \sigma'(z) = \sigma(z) \cdot (1 - \sigma(z)) $$
+
+This result shows that the derivative of the sigmoid function at any point \( z \) can be easily calculated if we know the value of the sigmoid function at that point. 
