@@ -240,4 +240,6 @@ $$ \frac{\partial z^{(L)}}{\partial a^{(L-1)}}= w^{L} $$
 
 
 For calcualting the affect of $w^{(L-1)}$ on $C_0$  you follow the tree: change in $z^{L-1}$ due to change in $w^{L-1}$ and the resulting change in $a^{L-1}$ due to $z^{L-1}$ and so on
+
+
 $$ \frac{\partial C_0}{\partial w^{(L-1)}}=\frac{\partial z^{(L-1)}}{\partial w^{(L-1)}} \frac{\partial a^{(L-1)}}{\partial z^{(L-1)}} \frac{\partial z^{(L)}}{\partial a^{(L-1)}} \frac{\partial a^{(L)}}{\partial z^{(L)}} \frac{\partial C_0}{\partial a^{(L)}} $$
