@@ -243,3 +243,9 @@ For calcualting the affect of $w^{(L-1)}$ on $C_0$  you follow the tree: change 
 
 
 $$ \frac{\partial C_0}{\partial w^{(L-1)}}=\frac{\partial z^{(L-1)}}{\partial w^{(L-1)}} \frac{\partial a^{(L-1)}}{\partial z^{(L-1)}} \frac{\partial z^{(L)}}{\partial a^{(L-1)}} \frac{\partial a^{(L)}}{\partial z^{(L)}} \frac{\partial C_0}{\partial a^{(L)}} $$
+
+
+
+Two things to remember here are : 
+1. The equations are just for one weight, one bias etc, the final slope we are going to calculate are going to keep track of multiple costs and weights together and will be **longer** to compute
+2. We don't differentiate actually, we just use the defintion of derivate to compute all the derivatives.  When we say for ease of deriving, its to complete the math proofs
