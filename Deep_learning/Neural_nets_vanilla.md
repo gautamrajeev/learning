@@ -248,4 +248,4 @@ $$ \frac{\partial C_0}{\partial w^{(L-1)}}=\frac{\partial z^{(L-1)}}{\partial w^
 
 Two things to remember here are : 
 1. The equations are just for one weight, one bias etc, the final slope we are going to calculate are going to keep track of multiple costs and weights together and will be **longer** to compute
-2. We don't differentiate actually, we just use the defintion of derivate to compute all the derivatives.  When we say for ease of deriving, its to complete the math proofs
+2. We need not differentiate actually, we could just use the defintion of derivate to compute all the derivatives. FOr the micrograd video for example they use the approximation for calculating derivate, but in actula neural nets, they use the analytical (mathematical) calculation for each derivative because its faster
